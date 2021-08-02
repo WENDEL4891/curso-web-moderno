@@ -20,6 +20,19 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        $(function(){
+            function mostrarPosicaoMouse(e){
+                $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)                
+            }
+
+            // $('body').mousemove(mostrarPosicaoMouse) OU OPÇÃO ADIANTE
+            $('body').on('mousemove', mostrarPosicaoMouse)
+        
+            $('#posicao').on('mouseover', function(e){
+                $('body').off('mousemove', mostrarPosicaoMouse)
+            })
+
+
+        })
     </script>
 </body>

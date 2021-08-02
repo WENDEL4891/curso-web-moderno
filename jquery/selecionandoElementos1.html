@@ -40,6 +40,14 @@
             <li class='opcional'>Ovo</li>
         </ul>
     </div>
+    <div>
+        <ul id='feira2'>
+            <li>Óleo</li>
+            <li wm-obrigatorio>Macarrão</li>
+            <li class='opcional'>Verduras</li>
+            <li class='opcional'>Pão</li>
+        </ul>
+    </div>
     <form>
         <input type='text' name='texto'>
         <input type='password' name='senha'>
@@ -49,6 +57,29 @@
     </form>
 
     <script>
-        // ...
+        $('#feira').addClass('destaque').removeClass('destaque')
+        $('li').addClass('destaque')
+        $('[wm-obrigatorio]').removeClass('destaque')
+        $('.opcional').removeClass('destaque')
+        $('div p span').addClass('destaque')
+
+        // Exclusivos do jquery
+        $('li:first').css('border', 'solid 3px yellow')
+        $('li:last').css('border', 'solid 3px yellow')
+        $('li:odd').css('border', 'solid 10px orange')
+        $('li:even').css('background-color', '#0d262d')
+        $('li:gt(1)').css('border', '10px solid white')
+        $('li:not(:last)').css('border', 'none')
+        $('li:contains("r")').css('background-color', 'green')
+        $('li:not(:contains("ã"))').css('background-color', 'blue')
+        $('li').css('background-color', 'transparent')
+        
+        $('form *').hide(3000).show(1000)
+        $('form :text').show()
+        $('form :password').show()
+        $('form :checkbox').show()
+        $('form :radio').show()
+        $('form :file').show()
+        $('form :file').fadeOut(3000)
     </script>
-</body>
+</body> 

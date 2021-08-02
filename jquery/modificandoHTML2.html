@@ -16,7 +16,47 @@
     <p class='numero'>4</p>
     <p class='numero'>5</p>
 
+    
+
     <script>
-        // ...
+        $(function(){
+            $('#div1').append(', 2')
+            $('#div1').prepend('0, ')
+
+            $('<span>, 3</span>').appendTo('#div1')
+            $('<span>-1, </span>').prependTo('#div1')
+            
+            // O exemplo adiante não funciona. Nos dois casos anteriores, primeiro o jQuery
+            // cria o elemento e depois inclui no conteúdo da #div1. Nesse caso, porém, para
+            // incluir apenas conteúdo, o jQuery não entende a pretensão do programador,
+            // pois a notação $('-2') no início da linha, caracteriza, inicialmente, uma busca
+            // por elementos. Porém, para ter o mesmo efeito pretendido, basta fazer como nos
+            // primeiros exemplos, buscando primeiro a #div1 e depois fazendo o append somente do
+            // conteúdo.
+            $('-2').prependTo('#div1')
+
+            $('#div2').before('<p>Antes 2</p>')
+            $('#div2').after('<p>Depois 2</p>')
+
+            $('<p>Antes 3</p>').insertBefore('#div3')
+            $('<p>Depois 3</p>').insertAfter('#div3')
+
+            // $('p.numero').wrap('<div id=4>')
+            $('p.numero').wrapAll('<div id=div4>')
+            $('#div4').empty()
+            $('#div3, #div4').prev().remove()
+            // $('#div1, #div2').next().wrap('<div>')
+
+            // $('<div>Substituto</div>').replaceAll('body > p')
+            // $('body > p').replaceWith('<div>Substituto</div>')
+
+            $('body > p').replaceWith(function(){
+                return $('<div>').html($(this).html()).append('!!!')
+            })
+
+
+
+
+        })
     </script>
 </body>

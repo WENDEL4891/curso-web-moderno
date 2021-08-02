@@ -12,14 +12,41 @@
     <h1>Modificando HTML #03</h1>
     <div id='conteudo'></div>
 
+    
     <script>
-        const pessoas = [
+        const alunos = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
         
+
+        $(function(){
+            
+            const linhas = alunos.map(aluno => {
+                const tdNome = $('<td>').html(aluno.nome)
+                const tdNota = $('<td>').html(aluno.nota)
+                return $('<tr>').append(tdNome, tdNota)
+            })
+
+            $('#conteudo').append(linhas)
+
+
+            // const table = '<table><thead><tr><th>Nome</th><th>Nota</th></tr></thead><tbody></tbody></table>'
+
+            // $('#conteudo').append(table)
+
+            // pessoas.forEach((item)=>{
+            //     const row = $('<tr>')
+            //     row.append(`<td>${item.nome}</td>`)
+            //     row.append(`<td>${item.nota}</td>`)
+                
+            //     $('tbody').append(row)
+                
+            // })
+
+        })
         // ...
     </script>
 </body>

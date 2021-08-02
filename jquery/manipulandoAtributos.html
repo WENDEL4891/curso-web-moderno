@@ -23,6 +23,10 @@
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
     <script>
-        // ...
+        
+        $('<div>1</div>').appendTo('div[wm-relogio]')
+
+        const btn = $('<button>').html('Botão')
+        $('div[wm-relogio=1000]').append(btn)
     </script>
 </body>
